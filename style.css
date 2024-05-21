@@ -141,6 +141,44 @@ body {
   font-size: 20px;
   cursor: pointer;
 }
+.choose {
+  font-family: "Lilita One";
+  font-size: 42px;
+  color: rgb(255, 196, 0);
+}
+.paper2 {
+  width: 100px;
+  height: 100px;
+}
+.paper2:hover {
+  cursor: pointer;
+}
+.paper2Clone {
+  width: 150px;
+  height: 150px;
+}
+.scissors2 {
+  width: 100px;
+  height: 100px;
+}
+.scissors2Clone {
+  width: 150px;
+  height: 150px;
+}
+.scissors2:hover {
+  cursor: pointer;
+}
+.rock2 {
+  width: 100px;
+  height: 100px;
+}
+.rock2Clone {
+  width: 150px;
+  height: 150px;
+}
+.rock2:hover {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 768px) {
   .title {
