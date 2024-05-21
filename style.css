@@ -26,17 +26,30 @@ body {
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  gap: 110px;
+  gap: 80px;
   justify-content: center;
 }
 .rock {
   width: 100px;
   height: 100px;
+  transition: transform 0.2s;
 }
 .rock:hover {
   cursor: pointer;
+  animation: hoverAnimation 0.5s infinite alternate;
 }
-
+@keyframes hoverAnimation {
+  0% {
+    transform: scale(1); /* Start with normal size */
+  }
+  100% {
+    transform: scale(1.2); /* End with 1.5 times size */
+  }
+}
+.circleContainer {
+  display: flex;
+  gap: 120px;
+}
 .buttonDiv {
   display: flex;
   justify-content: center;
@@ -44,20 +57,20 @@ body {
 .scissors {
   width: 100px;
   height: 100px;
+  transition: transform 0.2s;
 }
 .scissors:hover {
   cursor: pointer;
+  animation: hoverAnimation 0.5s infinite alternate;
 }
 .paper {
   width: 100px;
   height: 100px;
-  /* position: absolute; */
-  /* top: 50%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%); */
+  transition: transform 0.2s;
 }
 .paper:hover {
   cursor: pointer;
+  animation: hoverAnimation 0.5s infinite alternate;
 }
 .iconsDiv {
   display: flex;
@@ -81,10 +94,10 @@ body {
 .custom-btn-warning {
   height: 60px;
   width: 250px;
-  font-family: "Lilita One";
-  font-weight: 400;
-  font-style: normal;
   margin-bottom: 100px;
+  font-family: "Lilita One";
+  font-weight: 500;
+  font-size: 25px;
 }
 .circle1 {
   height: 150px;
@@ -98,9 +111,14 @@ body {
 }
 .circle2:hover {
   cursor: pointer;
+  /* animation: hoverAnimation 0.5s infinite alternate; */
+}
+.hover-effect {
+  animation: hoverAnimation 0.5s infinite alternate;
 }
 .circle1:hover {
   cursor: pointer;
+  animation: hoverAnimation 0.5s infinite alternate;
 }
 .modal {
   display: none;
@@ -179,7 +197,62 @@ body {
 .rock2:hover {
   cursor: pointer;
 }
-
+.ccontainer2 {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.buttonsDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.restartButton {
+  background-color: rgb(255, 196, 0);
+  width: 120px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  display: none;
+  font-family: "Lilita One";
+  font-weight: 500;
+  font-size: 25px;
+}
+.submitButton {
+  background-color: rgb(255, 196, 0);
+  width: 120px;
+  height: 40px;
+  font-weight: 800;
+  border-radius: 8px;
+  border: none;
+  display: none;
+  font-family: "Lilita One";
+  font-weight: 500;
+  font-size: 25px;
+}
+.yourScore {
+  font-family: "Lilita One";
+  color: rgb(255, 196, 0);
+  font-size: 28px;
+  display: none;
+}
+.CpuScore {
+  font-family: "Lilita One";
+  color: rgb(255, 196, 0);
+  font-size: 28px;
+  display: none;
+}
+.insideButtonsDiv {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+.scoresDiv {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+}
 @media screen and (max-width: 768px) {
   .title {
     font-size: 48px;
@@ -205,6 +278,18 @@ body {
     width: 120px;
   }
   .circle2 {
+    height: 120px;
+    width: 120px;
+  }
+  .paper2Clone {
+    height: 120px;
+    width: 120px;
+  }
+  .rock2Clone {
+    height: 120px;
+    width: 120px;
+  }
+  .scissors2Clone {
     height: 120px;
     width: 120px;
   }
@@ -237,5 +322,17 @@ body {
   .circle2 {
     height: 100px;
     width: 100px;
+  }
+  .paper2Clone {
+    height: 60px;
+    width: 60px;
+  }
+  .rock2Clone {
+    height: 60px;
+    width: 60px;
+  }
+  .scissors2Clone {
+    height: 60px;
+    width: 60px;
   }
 }
