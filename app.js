@@ -14,10 +14,44 @@ const scissors2 = document.querySelector(".scissors2");
 const rock2 = document.querySelector(".rock2");
 const submitButton = document.querySelector(".submitButton");
 const restartButton = document.querySelector(".restartButton");
-const rockPaperScissors = [paper2, scissors2, rock2];
+
 const yourScore = document.querySelector(".yourScore");
 const CpuScore = document.querySelector(".CpuScore");
+const yourJs = document.querySelector(".yourJs");
+const CpuJs = document.querySelector(".CpuJs");
 let isButtonClicked = false;
+
+const rockPaperScissors = [paper2, scissors2, rock2];
+
+function compareChoices(userChoice, computerChoice) {
+  if (userChoice === computerChoice) {
+    return "The result is a tie!";
+  }
+
+  if (userChoice === "rock") {
+    if (computerChoice === "scissors") {
+      return "Rock wins!";
+    } else {
+      return "Paper wins!";
+    }
+  }
+
+  if (userChoice === "scissors") {
+    if (computerChoice === "rock") {
+      return "Rock wins!";
+    } else {
+      return "Scissors wins!";
+    }
+  }
+
+  if (userChoice === "paper") {
+    if (computerChoice === "rock") {
+      return "Paper wins!";
+    } else {
+      return "Scissors wins!";
+    }
+  }
+}
 
 function activateHover() {
   circle.classList.add("hover-effect");
@@ -27,9 +61,9 @@ function activateHover() {
 }
 
 submitButton.addEventListener("click", function () {
+  const random = Math.floor(Math.random() * 3);
+  const clonedElement4 = rockPaperScissors[random].cloneNode(true);
   if (!document.contains(circle)) {
-    const random = Math.floor(Math.random() * 3);
-    let clonedElement4 = rockPaperScissors[random].cloneNode(true);
     clonedElement4.className = "";
     clonedElement4.classList.add("rock2Clone");
     circle2.parentNode.replaceChild(clonedElement4, circle2);
@@ -37,6 +71,9 @@ submitButton.addEventListener("click", function () {
     console.log(random);
   } else if (document.contains(circle)) {
     activateHover();
+  }
+  if (clonedElement4 === paper2 && clonedElement1.classList === "paper2Clone") {
+    return console.log("tie");
   }
 });
 
@@ -68,26 +105,28 @@ button.addEventListener("click", function () {
   modal.style.display = "none";
 });
 paper2.addEventListener("click", function () {
-  const clonedElement1 = paper2.cloneNode(true);
-  clonedElement1.classList.remove("paper2");
+  // clonedElement1.classList.remove("paper2");
   clonedElement1.classList.add("paper2Clone");
   clonedElement1.style.display = "block";
   circle.parentNode.replaceChild(clonedElement1, circle);
   modal.style.display = "none";
 });
+const clonedElement1 = paper2.cloneNode(true);
+
 scissors2.addEventListener("click", function () {
-  const clonedElement2 = scissors2.cloneNode(true);
-  clonedElement2.classList.remove("scissors2");
+  // clonedElement2.classList.remove("scissors2");
   clonedElement2.classList.add("scissors2Clone");
   clonedElement2.style.display = "block";
   circle.parentNode.replaceChild(clonedElement2, circle);
   modal.style.display = "none";
 });
+const clonedElement2 = scissors2.cloneNode(true);
+
 rock2.addEventListener("click", function () {
-  const clonedElement3 = rock2.cloneNode(true);
-  clonedElement3.classList.remove("rock2");
+  // clonedElement3.classList.remove("rock2");
   clonedElement3.classList.add("rock2Clone");
   clonedElement3.style.display = "block";
   circle.parentNode.replaceChild(clonedElement3, circle);
   modal.style.display = "none";
 });
+const clonedElement3 = rock2.cloneNode(true);
