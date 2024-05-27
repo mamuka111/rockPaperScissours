@@ -1,6 +1,5 @@
 const paper = document.querySelector(".paper");
 const button = document.querySelector(".btn.btn-warning");
-
 const rock = document.querySelector(".rock");
 const scissors = document.querySelector(".scissors");
 const modal = document.getElementById("myModal");
@@ -14,44 +13,14 @@ const scissors2 = document.querySelector(".scissors2");
 const rock2 = document.querySelector(".rock2");
 const submitButton = document.querySelector(".submitButton");
 const restartButton = document.querySelector(".restartButton");
-
 const yourScore = document.querySelector(".yourScore");
 const CpuScore = document.querySelector(".CpuScore");
 const yourJs = document.querySelector(".yourJs");
 const CpuJs = document.querySelector(".CpuJs");
 let isButtonClicked = false;
-
 const rockPaperScissors = [paper2, scissors2, rock2];
-
-function compareChoices(userChoice, computerChoice) {
-  if (userChoice === computerChoice) {
-    return "The result is a tie!";
-  }
-
-  if (userChoice === "rock") {
-    if (computerChoice === "scissors") {
-      return "Rock wins!";
-    } else {
-      return "Paper wins!";
-    }
-  }
-
-  if (userChoice === "scissors") {
-    if (computerChoice === "rock") {
-      return "Rock wins!";
-    } else {
-      return "Scissors wins!";
-    }
-  }
-
-  if (userChoice === "paper") {
-    if (computerChoice === "rock") {
-      return "Paper wins!";
-    } else {
-      return "Scissors wins!";
-    }
-  }
-}
+const rockPaperScissors2 = [paper2, scissors2, rock2];
+const clonedClasnames = ["paper2Clone", "scissors2Clone", "rock2Clone"];
 
 function activateHover() {
   circle.classList.add("hover-effect");
@@ -72,9 +41,6 @@ submitButton.addEventListener("click", function () {
   } else if (document.contains(circle)) {
     activateHover();
   }
-  if (clonedElement4 === paper2 && clonedElement1.classList === "paper2Clone") {
-    return console.log("tie");
-  }
 });
 
 startButton.addEventListener("click", function () {
@@ -93,7 +59,7 @@ startButton.addEventListener("click", function () {
 });
 
 circle.addEventListener("click", function () {
-  modal.style.display = "block"; // Show modal
+  modal.style.display = "block";
 });
 
 window.addEventListener("click", function (event) {
@@ -104,29 +70,40 @@ window.addEventListener("click", function (event) {
 button.addEventListener("click", function () {
   modal.style.display = "none";
 });
-paper2.addEventListener("click", function () {
-  // clonedElement1.classList.remove("paper2");
-  clonedElement1.classList.add("paper2Clone");
-  clonedElement1.style.display = "block";
-  circle.parentNode.replaceChild(clonedElement1, circle);
-  modal.style.display = "none";
+rockPaperScissors2.map((item, index) => {
+  item.addEventListener("click", function () {
+    let clonedElement = item.cloneNode(true);
+    item.classList.forEach((className) => {
+      clonedElement.classList.remove(className);
+    });
+    clonedElement.classList.add(clonedClasnames[index]);
+    circle.parentNode.replaceChild(clonedElement, circle);
+    modal.style.display = "none";
+  });
 });
-const clonedElement1 = paper2.cloneNode(true);
+// paper2.addEventListener("click", function () {
+//   // clonedElement1.classList.remove("paper2");
+//   clonedElement1.classList.add("paper2Clone");
+//   clonedElement1.style.display = "block";
+//   circle.parentNode.replaceChild(clonedElement1, circle);
+//   modal.style.display = "none";
+// });
+// const clonedElement1 = paper2.cloneNode(true);
 
-scissors2.addEventListener("click", function () {
-  // clonedElement2.classList.remove("scissors2");
-  clonedElement2.classList.add("scissors2Clone");
-  clonedElement2.style.display = "block";
-  circle.parentNode.replaceChild(clonedElement2, circle);
-  modal.style.display = "none";
-});
-const clonedElement2 = scissors2.cloneNode(true);
+// scissors2.addEventListener("click", function () {
+//   // clonedElement2.classList.remove("scissors2");
+//   clonedElement2.classList.add("scissors2Clone");
+//   clonedElement2.style.display = "block";
+//   circle.parentNode.replaceChild(clonedElement2, circle);
+//   modal.style.display = "none";
+// });
+// const clonedElement2 = scissors2.cloneNode(true);
 
-rock2.addEventListener("click", function () {
-  // clonedElement3.classList.remove("rock2");
-  clonedElement3.classList.add("rock2Clone");
-  clonedElement3.style.display = "block";
-  circle.parentNode.replaceChild(clonedElement3, circle);
-  modal.style.display = "none";
-});
-const clonedElement3 = rock2.cloneNode(true);
+// rock2.addEventListener("click", function () {
+//   // clonedElement3.classList.remove("rock2");
+//   clonedElement3.classList.add("rock2Clone");
+//   clonedElement3.style.display = "block";
+//   circle.parentNode.replaceChild(clonedElement3, circle);
+//   modal.style.display = "none";
+// });
+// const clonedElement3 = rock2.cloneNode(true);
